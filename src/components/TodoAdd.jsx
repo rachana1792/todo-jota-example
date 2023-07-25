@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { todoAtom } from "../TodoStore"; 
-import { useAtom } from "jotai";
+import { useSetAtom  } from "jotai";
 import { v4 } from "uuid"; 
 const TodoAdd = () => {
 
 const [value, setValue] = useState("");
-const [, setTodos] = useAtom(todoAtom);
+const setTodos = useSetAtom(todoAtom); // only update no need to read; avoids unnecessery rerenders
 
 const onChange = (event) => {
   setValue(event.target.value);

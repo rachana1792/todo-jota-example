@@ -1,4 +1,4 @@
-import { useAtom } from "jotai";
+import {  useAtom } from "jotai";
 import { todoAtom } from "../TodoStore";
 
 
@@ -6,12 +6,11 @@ import { todoAtom } from "../TodoStore";
  const TodoList = ({ task }) => {
 
   const [todoList, setTodoList] = useAtom(todoAtom);
+  
 
   const index = todoList.findIndex((listTasks) => listTasks === task);
 
   const updateItemAtIndex = (arr, index, newValue) => {
-    console.log("index", index)
-    console.log("arr", [...arr.slice(0, index), newValue, ...arr.slice(index + 1)])
     return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
   };
   const removeItemAtIndex = (arr, index) => {
@@ -44,6 +43,7 @@ import { todoAtom } from "../TodoStore";
 
     setTodoList(newTodoList);
   };
+
 
   return (
     //jsx
